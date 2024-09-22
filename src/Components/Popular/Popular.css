@@ -1,0 +1,87 @@
+.popular {
+    padding: 40px;
+    text-align: center;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.popular h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px; /* Reduced margin for tighter spacing */
+}
+
+.popular hr {
+    width: 70%; /* Span across most of the container width */
+    margin: 0 auto 40px; /* Ensure margin between the hr and content */
+    border: 0; /* Remove default border */
+    height: 4px; /* Set a custom height */
+    background: linear-gradient(90deg, rgba(136,18,151,1) 0%, rgba(255,85,85,1) 100%); /* Cool gradient */
+    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8); /* Add a glow effect */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for glow effect */
+}
+
+.popular hr:hover {
+    box-shadow: 0 0 25px rgba(136, 18, 151, 1); /* Increase glow on hover */
+    background-color: rgba(136,18,151, 0.7); /* Darker on hover */
+}
+
+.popular-item {
+    display: flex;
+    margin-top: 80px; /* Space between the title and items */
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px; /* Gap between individual items */
+    opacity: 0; /* Initially hidden for animation */
+    transform: translateY(30px); /* Slide effect from below */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth animation */
+}
+
+.popular-item.visible {
+    opacity: 1; /* Show items when scrolled into view */
+    transform: translateY(0); /* Bring items to their normal position */
+}
+
+.frame {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth scale and shadow effect on hover */
+    margin: 15px; /* Space between images */
+}
+
+.frame:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+    box-shadow: 0 0 20px rgba(255, 0, 90, 0.8), /* Main glow */
+                0 0 30px rgba(255, 0, 90, 0.6), /* Secondary glow */
+                0 0 40px rgba(255, 0, 90, 0.4); /* Larger outer glow */
+}
+
+.frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+
+/* Dark Mode Styling */
+.dark-mode .popular h1 {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6); /* Glow effect */
+}
+
+.dark-mode .popular hr {
+    border-color: #444; /* Darker color for the HR in dark mode */
+}
+
+.dark-mode .popular {
+    background-color: #171717; /* Dark background */
+    color: white; /* White text for contrast */
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6); /* Neon effect */
+}

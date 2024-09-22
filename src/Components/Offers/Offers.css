@@ -1,0 +1,129 @@
+.offers {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 60px 100px;  
+    gap: 40px; 
+    flex-wrap: wrap; 
+}
+
+.offers-left {
+    flex: 1; /* Make this section take up equal space */
+    text-align: left; /* Align text to the left */
+    position: relative; /* For positioning glow effect */
+    z-index: 1; /* Ensure it appears above the image */
+}
+
+.offers-left h1 {
+    font-size: 48px; /* Larger font size for a bold heading */
+    font-weight: 800; /* Extra bold for a modern feel */
+    color: #222; /* Slightly softer dark color for text */
+    margin-bottom: 20px; /* Space below the heading */
+    text-shadow: 0 0 15px rgba(136, 18, 151, 0.8); /* Stronger glow effect */
+}
+
+.offers-left p {
+    font-size: 20px; /* Slightly larger font size for better readability */
+    color: #555; /* Mid-gray for text */
+    margin-bottom: 30px; /* More space below the paragraph */
+    line-height: 1.6; /* Improved line spacing */
+    text-shadow: 0 0 10px rgba(136, 18, 151, 0.6); /* Glow effect for paragraph */
+}
+
+.offers hr {
+    width: 80%; /* Span across most of the container width */
+    margin: 0 auto 40px; /* Ensure margin between the hr and content */
+    border: 0; /* Remove default border */
+    height: 4px; /* Set a custom height */
+    background: linear-gradient(90deg, rgba(136,18,151,1) 0%, rgba(255,85,85,1) 100%); /* Cool gradient */
+    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8); /* Add a glow effect */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for glow effect */
+}
+
+.offers hr:hover {
+    box-shadow: 0 0 25px rgba(136, 18, 151, 1); /* Increase glow on hover */
+    background-color: rgba(136,18,151, 0.7); /* Darker on hover */
+}
+
+
+.offers-left button {
+    padding: 15px 40px; /* Larger button for emphasis */
+    background-color: #881297; /* Bold purple color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 50px; /* Fully rounded corners for a modern look */
+    font-size: 18px; /* Larger font size */
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    transition: all 0.3s ease; /* Smooth transition on hover */
+}
+
+.offers-left button:hover {
+    background-color: #5e0e6c; /* Slightly darker purple on hover */
+    transform: translateY(-2px); /* Lift effect on hover */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Increase shadow on hover */
+}
+
+.offers-right {
+    flex: 1; /* Equal space for the image section */
+    display: flex;
+    justify-content: center; /* Center the image */
+    align-items: center;
+}
+
+.offers-right img {
+    max-width: 100%; /* Make image responsive */
+    height: auto; /* Maintain aspect ratio */
+    max-height: 400px; /* Increase max height for a larger image */
+    /* border-radius and box-shadow removed */
+}
+
+/* Dark mode styles */
+.dark-mode .offers-left h1 {
+    color: white; /* Light color for dark mode */
+}
+
+.dark-mode .offers-left p {
+    color: #ddd; /* Lighter gray for dark mode */
+}
+
+.dark-mode .offers-left button {
+    background-color: #444; /* Dark button background */
+}
+
+.dark-mode .offers-left button:hover {
+    background-color: #222; /* Darker on hover */
+}
+
+.dark-mode .offers {
+    background-color: #171717; /* Dark background for the section */
+}
+
+.dark-mode .offers-right img {
+    box-shadow: none; /* No shadow in dark mode */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .offers {
+        flex-direction: column; /* Stack the content vertically */
+        padding: 40px 20px;
+        gap: 20px;
+    }
+
+    .offers-left h1 {
+        font-size: 36px; /* Adjust font size for smaller screens */
+    }
+
+    .offers-left p {
+        font-size: 18px; /* Adjust paragraph font size */
+    }
+
+    .offers-left button {
+        padding: 12px 30px; /* Slightly smaller buttons */
+    }
+
+    .offers-right img {
+        max-height: 300px; /* Adjust max height for smaller screens */
+    }
+}

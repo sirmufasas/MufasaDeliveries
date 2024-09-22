@@ -1,0 +1,159 @@
+/* Base styles for light mode */
+.hero {
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 40px;
+    background-color: transparent;
+    transition: background 0.3s ease-in-out, color 0.3s ease-in-out;
+    position: relative; /* Ensures proper positioning */
+}
+
+.hero-left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding-left: 35px; /* Adjusted padding */
+    line-height: 1.1;
+}
+
+.hero-left h2 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333; /* Normal text color for light mode */
+    margin: 0; /* Ensure no additional margin */
+    padding-bottom: 10px; /* Space below the h2 */
+}
+
+.hero-left p {
+    font-size: 80px;
+    font-weight: 700;
+    color: #000; /* Normal text color for light mode */
+    margin: 0;
+}
+
+.hero-hand-icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hero-hand-icon img {
+    width: 100px;
+}
+
+/* Arrow icon */
+.hero-arrow-icon {
+    font-size: 50px;
+    color: #333;
+    transition: color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.hero-arrow-icon:hover {
+    color: #f00094;
+    transform: scale(1.1);
+}
+
+/* Button */
+.hero-latest-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 250px;
+    height: 60px;
+    border-radius: 30px;
+    margin-top: 30px;
+    background-color: #050505;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.hero-latest-btn:hover {
+    background-color: #f00094;
+}
+
+.hero-right img {
+    max-width: 90%;
+    height: auto;
+}
+
+/* Dark mode styles */
+.dark-mode .hero-left h2,
+.dark-mode .hero-left p,
+.dark-mode .hero-latest-btn {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8);
+}
+
+.dark-mode .hero-latest-btn {
+    background-color: #444;
+}
+
+.dark-mode .hero-latest-btn:hover {
+    background-color: #f700b9;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 20px;
+        text-align: center;
+    }
+
+    .hero-left {
+        padding-left: 0;
+    }
+
+    .hero-left h2 {
+        font-size: 28px;
+    }
+
+    .hero-left p {
+        font-size: 60px;
+    }
+
+    .hero-latest-btn {
+        width: 100%;
+        height: 50px;
+        font-size: 18px;
+    }
+
+    .hero-right img {
+        max-width: 80%;
+    }
+}
+
+/* Keyframes for spinning animations */
+@keyframes spinClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes spinCounterClockwise {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(-360deg); }
+}
+
+.hero-left h2 span,
+.hero-left p span,
+.hero-latest-btn span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.hero-left h2 span:hover,
+.hero-left p span:hover,
+.hero-latest-btn span:hover {
+    transform-origin: center;
+    animation: spinClockwise 0.3s linear;
+}

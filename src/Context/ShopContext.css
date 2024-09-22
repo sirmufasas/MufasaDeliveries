@@ -1,0 +1,82 @@
+:root {
+    --background-color: #ffffff; /* Light mode background */
+    --text-color: #000000; /* Light mode text color */
+    --box-shadow-color: rgba(0, 0, 0, 0.1);
+    --image-filter-light: brightness(1); /* Normal in light mode */
+}
+
+[data-theme='dark'] {
+    --background-color: #1a1a1a; /* Dark mode background */
+    --text-color: #ffffff; /* Dark mode text color */
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    --image-filter-dark: grayscale(80%) brightness(0.8); /* Dark mode filter */
+}
+
+.shop-provider {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px var(--box-shadow-color);
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+}
+
+.shop-provider h1 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+}
+
+.shop-provider img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    transition: filter 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] .shop-provider img {
+    filter: var(--image-filter-dark); /* Dark mode image filter */
+}
+
+.shop-provider img:hover {
+    filter: grayscale(50%) contrast(1.2); /* Hover effect for image */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .shop-provider img:hover {
+    filter: var(--image-filter-light); /* Reverse hover filter for dark mode */
+}
+
+.shop-provider .shopcategory-indexSort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--text-color);
+    padding-bottom: 10px;
+}
+
+.shop-provider .shopcategory-sort img {
+    cursor: pointer;
+    width: 25px;
+    height: 25px;
+    transition: transform 0.3s ease;
+}
+
+.shop-provider .shopcategory-sort img:hover {
+    transform: scale(1.2) rotate(10deg); /* Rotate on hover */
+}
+
+.shop-provider .shopcategory_products {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.shop-provider .shopcategory_products:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+}

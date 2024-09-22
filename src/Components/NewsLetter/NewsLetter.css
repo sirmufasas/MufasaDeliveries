@@ -1,0 +1,88 @@
+:root {
+    --text-color-light: #333; /* Dark grey for better contrast */
+    --text-color-dark: #f0f0f0; /* Light grey for dark mode */
+    --button-color: #ff5733;
+    --button-hover-color: #c0392b;
+  }
+  
+  body.light-mode {
+    --text-color: var(--text-color-light);
+  }
+  
+  body.dark-mode {
+    --text-color: var(--text-color-dark);
+  }
+  
+  .newsletter {
+    color: var(--text-color);
+    text-align: center;
+    padding: 2rem;
+    font-family: 'Arial', sans-serif;
+    transition: color 0.3s;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 0 15px rgba(255, 255, 0, 0.7);
+    letter-spacing: 1px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+  }
+  
+  .newsletter hr {
+    width: 80%;
+    margin: 0 auto 40px;
+    border: 0;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(136, 18, 151, 1) 0%, rgba(255, 85, 85, 1) 100%);
+    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  }
+  
+  .newsletter hr:hover {
+    box-shadow: 0 0 25px rgba(136, 18, 151, 1);
+    background-color: rgba(136, 18, 151, 0.7);
+  }
+  
+  .input-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  input[type="email"] {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border: 2px solid var(--text-color);
+    border-radius: 5px;
+    margin-right: 0.5rem;
+    outline: none;
+    transition: box-shadow 0.3s, border-color 0.3s;
+  }
+  
+  input[type="email"]:focus {
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.7);
+    border-color: rgba(255, 255, 0, 0.7);
+  }
+  
+  button {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: white;
+    background-color: var(--button-color);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    background-color: var(--button-hover-color);
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.7);
+  }
+  

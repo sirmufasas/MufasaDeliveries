@@ -1,0 +1,84 @@
+.new-collections {
+    padding: 40px;
+    text-align: center;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+.new-collections h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.new-collections hr {
+    width: 80%; /* Span across most of the container width */
+    margin: 0 auto 40px; /* Ensure margin between the hr and content */
+    border: 0; /* Remove default border */
+    height: 4px; /* Set a custom height */
+    background: linear-gradient(90deg, rgba(136,18,151,1) 0%, rgba(255,85,85,1) 100%); /* Cool gradient */
+    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8); /* Add a glow effect */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for glow effect */
+}
+
+.new-collections hr:hover {
+    box-shadow: 0 0 25px rgba(136, 18, 151, 1); /* Increase glow on hover */
+    background-color: rgba(136,18,151, 0.7); /* Darker on hover */
+}
+
+
+.collections {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    opacity: 0; /* Start hidden for animation */
+    transform: translateY(30px); /* Initial position for slide effect */
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.collections.visible {
+    opacity: 1; /* Show when visible */
+    transform: translateY(0); /* Move to original position */
+}
+frame {
+    width: 200px;
+    height: 200px;
+    
+.overflow: hidden;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s; /* Smooth scale and shadow effect on hover */
+    margin: 15px; /* Space between images */
+}
+
+.frame:hover {
+    transform: scale(1.1); /* Scale effect on hover */
+    box-shadow: 0 0 15px rgba(255, 0, 90, 0.8), 0 0 25px rgba(255, 0, 90, 0.6); /* Glowing effect */
+}
+
+.frame img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Dark mode styles */
+.dark-mode .new-collections h1 {
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6);
+}
+
+.dark-mode .new-collections hr {
+    border-color: #444;
+}
+
+.dark-mode .new-collections {
+    background-color: #171717;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6);
+}

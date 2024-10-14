@@ -1,63 +1,74 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // For navigation
+import { useNavigate } from 'react-router-dom';
 import './LoginSignup.css';
 
 const LoginSignup = () => {
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [isLoginMode, setIsLoginMode] = useState(false); // To toggle between signup and login
-    const navigate = useNavigate(); // For navigation
+    const [isLoginMode, setIsLoginMode] = useState(false);
+    const navigate = useNavigate();
 
-    // Handle form submission for Signup
-    const handleContinue = () => {
-        // Check if all fields are filled
+    const handleContinue = async () => {
         if (!name.trim() || !email.trim() || !password.trim()) {
             alert('Please fill in all fields.');
             return;
         }
 
-        // Check if user data already exists
-        const existingUser = localStorage.getItem(email);
-        if (existingUser) {
-            alert('User already exists. Please log in.');
-            setIsLoginMode(true); // Switch to login mode if user exists
-        } else {
-            // Store user data locally
-            const userData = { name, email, password };
-            localStorage.setItem(email, JSON.stringify(userData));
-            alert('You have successfully signed up!');
+        try {
+            const response = await fetch('http://localhost:3001/signup', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
 
-            // Navigate to shop page after signup
-            navigate('/shop');
+            if (response.ok) {
+                alert('You have successfully signed up!');
+                navigate('/shop');
+            } else {
+                const errorData = await response.json();
+                alert(`Signup failed: ${errorData.message}`);
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again.');
+            console.error('Error during signup:', error);
         }
     };
 
-    // Handle login
-    const handleLogin = () => {
-        // Check if both fields are filled
+    const handleLogin = async () => {
         if (!email.trim() || !password.trim()) {
             alert('Please fill in both email and password to log in.');
             return;
         }
 
-        // Check if user exists in localStorage
-        const storedUser = JSON.parse(localStorage.getItem(email));
-        if (storedUser && storedUser.password === password) {
-            alert(`Welcome back, ${storedUser.name}! You have successfully logged in.`);
-            
-            // Navigate to shop page after login
-            navigate('/shop');
-        } else {
-            alert('Incorrect email or password.');
+        try {
+            const response = await fetch('http://localhost:3001/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            if (response.ok) {
+                const userData = await response.json();
+                alert(`Welcome back, ${userData.user.email}! You have successfully logged in.`);
+                navigate('/shop');
+            } else {
+                const errorData = await response.json();
+                alert(`Login failed: ${errorData.message}`);
+            }
+        } catch (error) {
+            alert('An error occurred. Please try again.');
+            console.error('Error during login:', error);
         }
     };
 
-    // Switch between signup and login forms
     const toggleLoginMode = () => {
         setIsLoginMode(!isLoginMode);
-        // Reset fields when switching modes
-        setName('');
+        setName(''); // Clear name field on toggle
         setEmail('');
         setPassword('');
     };

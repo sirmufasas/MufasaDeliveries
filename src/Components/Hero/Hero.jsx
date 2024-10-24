@@ -6,10 +6,8 @@ import hand_icon from '../Assets/hand icon.png';
 const Hero = () => {
   return (
     <div className='hero'>
-      <div className="hero-left">
-        {/* <h2>
-          <span>N</span><span>E</span><span>W</span>  ARRIVALS  ONLY
-        </h2> */}
+      <div className="hero-left"> 
+       
         <div className="hero-hand-icon">
           <p>
             <span>N</span><span>E</span><span>W</span>

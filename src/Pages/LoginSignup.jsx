@@ -16,7 +16,7 @@ const LoginSignup = () => {
         }
 
         try {
-            const response = await fetch('http://54.161.50.208:8000/signup', {
+            const response = await fetch('http://3.87.254.2:8000/signup', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -44,7 +44,7 @@ const LoginSignup = () => {
         }
 
         try {
-            const response = await fetch('http://54.161.50.208:8000/login', {
+            const response = await fetch('http://3.87.254.2:8000/login', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

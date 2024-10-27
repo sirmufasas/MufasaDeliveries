@@ -1,5 +1,5 @@
 import React from 'react';
-import '../ItemCard.css'; // Add custom styles for individual item cards
+import '../ItemCard.css'; 
 
 const ItemCard = ({ item, addToCart, removeFromCart }) => {
   return (

@@ -1,0 +1,125 @@
+/* General styling for the Payment page */
+.payment-container {
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 25px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.payment-container h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #444;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 10px;
+}
+
+/* Order Summary Section */
+.order-summary {
+    margin-bottom: 20px;
+}
+
+.order-summary h3 {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.order-summary ul {
+    list-style: none;
+    padding: 0;
+}
+
+.order-summary li {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
+}
+
+.order-summary p {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Payment Form */
+.payment-form {
+    margin-top: 20px;
+}
+
+.payment-form div {
+    margin-bottom: 15px;
+}
+
+.payment-form label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #444;
+}
+
+.payment-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease;
+}
+
+.payment-form input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Error message */
+.error-message {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: -5px;
+}
+
+/* Pay Button */
+.pay-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 18px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.pay-btn:hover {
+    background-color: #218838;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .payment-container {
+        padding: 20px;
+    }
+
+    .payment-container h2 {
+        font-size: 20px;
+    }
+
+    .order-summary h3 {
+        font-size: 18px;
+    }
+
+    .payment-form label,
+    .payment-form input,
+    .pay-btn {
+        font-size: 14px;
+    }
+}

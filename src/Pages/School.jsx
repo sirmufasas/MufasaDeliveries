@@ -1,59 +1,47 @@
-import React, { useState } from 'react';
-import './School.css'; // Add your styling
-import ItemCard from './ItemCard'; // Reusable component for school items
-
-const schoolItems = [
-  { id: 1, name: 'Notebook', price: 5.00, image: 'notebook.png', description: '200-page lined notebook.' },
-  { id: 2, name: 'Pencil Case', price: 8.00, image: 'pencilcase.png', description: 'Spacious pencil case with compartments.' },
-  { id: 3, name: 'Backpack', price: 30.00, image: 'backpack.png', description: 'Durable backpack with multiple pockets.' },
-  { id: 4, name: 'Highlighter Set', price: 12.00, image: 'highlighter.png', description: '5-pack highlighters in various colors.' },
-];
+import React, { useState, useEffect } from 'react';
+import './School.css';
+import notebookImage from '../Assets/notebook.png';
+import pencilCaseImage from '../Assets/pencilcase.png';
+import backpackImage from '../Assets/backpack.png';
+import highlighterImage from '../Assets/highlighter.png';
 
 const School = () => {
-  const [cartItems, setCartItems] = useState([]);
+    const [schoolItems, setSchoolItems] = useState([]);
 
-  const addToCart = (item) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
+    useEffect(() => {
+        setSchoolItems([
+            { id: 1, name: 'Notebook', price: 34.00, image: notebookImage, description: '80-page lined notebook.' },
+            { id: 2, name: 'Pencil Case', price: 20.00, image: pencilCaseImage, description: 'Spacious pencil case with compartments.' },
+            { id: 3, name: 'Backpack', price: 500.00, image: backpackImage, description: 'Durable backpack with multiple pockets.' },
+            { id: 4, name: 'Highlighter Set', price: 50.00, image: highlighterImage, description: 'Highlighters in various colors.' },
+        ]);
+    }, []);
+
+
+    setSchoolItems([
+        { id: 1, name: 'Notebook', price: 34.00, image: require('../Assets/notebook.png'), description: '80-page lined notebook.' },
+        { id: 2, name: 'Pencil Case', price: 20.00, image: require('../Assets/pencilcase.png'), description: 'Spacious pencil case with compartments.' },
+        { id: 3, name: 'Backpack', price: 500.00, image: require('../Assets/backpack.png'), description: 'Durable backpack with multiple pockets.' },
+        { id: 4, name: 'Highlighter Set', price: 50.00, image: require('../Assets/highlighter.png'), description: 'Highlighters in various colors.' },
+    ]);
     
-    if (existingItem) {
-      const updatedCart = cartItems.map(cartItem => 
-        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity + 1 } : cartItem
-      );
-      setCartItems(updatedCart);
-    } else {
-      setCartItems([...cartItems, { ...item, quantity: 1 }]);
-    }
-  };
 
-  const removeFromCart = (item) => {
-    const existingItem = cartItems.find(cartItem => cartItem.id === item.id);
-    
-    if (existingItem.quantity === 1) {
-      const updatedCart = cartItems.filter(cartItem => cartItem.id !== item.id);
-      setCartItems(updatedCart);
-    } else {
-      const updatedCart = cartItems.map(cartItem =>
-        cartItem.id === item.id ? { ...cartItem, quantity: cartItem.quantity - 1 } : cartItem
-      );
-      setCartItems(updatedCart);
-    }
-  };
 
-  return (
-    <div className="school-page">
-      <h1>School Supplies</h1>
-      <div className="item-grid">
-        {schoolItems.map(item => (
-          <ItemCard 
-            key={item.id} 
-            item={item} 
-            addToCart={() => addToCart(item)} 
-            removeFromCart={() => removeFromCart(item)} 
-          />
-        ))}
-      </div>
-    </div>
-  );
+    return (
+        <div className="school-page">
+            <h1>School Supplies</h1>
+            <div className="item-grid">
+                {schoolItems.map(item => (
+                    <div key={item.id} className="item-card">
+                        <img src={item.image} alt={item.name} className="item-image" />
+                        <h2>{item.name}</h2>
+                        <p>{item.description}</p>
+                        <p>${item.price.toFixed(2)}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    );
 };
 
 export default School;

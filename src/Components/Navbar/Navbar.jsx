@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './Navbar.css';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';  // Added useNavigate for redirecting
 import { BsBasket2Fill } from "react-icons/bs";
 import logo from '../Assets/logo.png';
 
@@ -17,7 +17,9 @@ const Navbar = ({ toggleDarkMode, cartItems }) => {
     });
 
     const [currentImage, setCurrentImage] = useState(0);
+    const [isLoggedIn, setIsLoggedIn] = useState(false); // State to track login status
     const location = useLocation(); // Get the current location
+    const navigate = useNavigate();  // Hook to redirect to login page after logout
 
     const images = [
         image1,
@@ -39,8 +41,23 @@ const Navbar = ({ toggleDarkMode, cartItems }) => {
         localStorage.setItem('theme', darkMode ? 'dark' : 'light');
     }, [darkMode]);
 
+    // Simulate login (in a real-world scenario, this would come from API or context)
+    useEffect(() => {
+        const isUserLoggedIn = localStorage.getItem('userLoggedIn'); // Check if user is logged in
+        if (isUserLoggedIn) {
+            setIsLoggedIn(true); // Set login status based on localStorage
+        }
+    }, []);
+
     const toggleTheme = () => {
         setDarkMode(prev => !prev);
+    };
+
+    // Logout function
+    const logout = () => {
+        localStorage.removeItem('userLoggedIn'); // Clear user session data
+        setIsLoggedIn(false); // Update state
+        navigate('/'); // Redirect to home or another page after logout
     };
 
     return (
@@ -62,7 +79,15 @@ const Navbar = ({ toggleDarkMode, cartItems }) => {
                     </li>
                 </ul>
                 <div className="nav-login-cart">
-                    <Link to='/login'><button className="btn">Login</button></Link>
+                    {isLoggedIn ? (
+                        // If logged in, show Logout button
+                        <button className="btn" onClick={logout}>Logout</button>
+                    ) : (
+                        // If not logged in, show Login button
+                        <Link to='/login'>
+                            <button className="btn">Login</button>
+                        </Link>
+                    )}
                     <Link to='/cart' style={{ position: 'relative' }}>
                         <BsBasket2Fill />
                         <div className="nav-cart-count">{cartItems.length}</div>

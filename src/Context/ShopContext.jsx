@@ -1,17 +1,17 @@
 import React, { createContext } from 'react';
+import allproduct from "../Components/Assets/allproducts";
 
-``
 export const ShopContext = createContext(null);
 
-export const ShopProvider = ({ children }) => {
-    // You can remove the all_products state since we're using images directly
-    const contextValue = {}; // Keep it empty since we no longer need to provide products
+const ShopContextProvider = (props) => {
+    
+    const contextValue = {allproduct};
 
     return (
         <ShopContext.Provider value={contextValue}>
-            {children}
-        </ShopContext.Provider>
-    );
-};
+            {props.children}
+            </ShopContext.Provider> 
+    )
+}
 
-export default ShopProvider;
+export default ShopContextProvider;

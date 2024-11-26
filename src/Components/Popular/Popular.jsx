@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import './Popular.css';
-import Item from '../Item/Item'; // Adjust based on your actual structure
+import Item from '../Item/Item';
+
+// Import images
+import monitorImage from '../Assets/monitor.png';
+import pencilCaseImage from '../Assets/pencilcase.png';
+import organizerImage from '../Assets/organizer.png';
+import highlighterImage from '../Assets/highlighter.png';
 
 const Popular = () => {
   const [visible, setVisible] = useState(false);
@@ -8,49 +14,55 @@ const Popular = () => {
   useEffect(() => {
     const handleScroll = () => {
       const element = document.querySelector('.popular-item');
-      const rect = element.getBoundingClientRect();
-      if (rect.top < window.innerHeight && rect.bottom > 0) {
-        setVisible(true);
-        window.removeEventListener('scroll', handleScroll); // Remove event listener after visible
+      if (element) {
+        const rect = element.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          setVisible(true);
+          window.removeEventListener('scroll', handleScroll); // Remove event listener after visible
+        }
       }
     };
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []); // No need for dependencies here since handleScroll is defined inside the effect
+  }, []);
 
   return (
-    <div className='popular'>
+    <div className="popular">
       <h1>POPULAR IN OFFICE</h1>
       <hr />
       <div className={`popular-item ${visible ? 'visible' : ''}`}>
         <Item 
-          name="Business Woman Supplies" 
-          description="Essential supplies for office productivity." 
-          new_price={299.99} 
-          old_price={349.99} 
-          rating={4} 
-        />
-        <Item 
-          name="Business Man Essentials" 
-          description="Office tools for the modern businessman." 
-          new_price={399.99} 
-          old_price={449.99} 
-          rating={5} 
-        />
-        <Item 
-          name="School Kids Kit" 
-          description="Perfect school supplies kit for kids." 
+          name="Monitor" 
+          image={monitorImage} 
           new_price={199.99} 
-          old_price={249.99} 
+          old_price={null} 
           rating={4} 
+          description="27-inch HD monitor for productivity." 
         />
         <Item 
-          name="Trolley Bag" 
-          description="Durable and spacious trolley bag for office or travel." 
-          new_price={499.99} 
-          old_price={599.99} 
-          rating={5} 
+          name="Pencil Case" 
+          image={pencilCaseImage} 
+          new_price={20.00} 
+          old_price={null} 
+          rating={4} 
+          description="Spacious pencil case with compartments." 
+        />
+        <Item 
+          name="Desk Organizer" 
+          image={organizerImage} 
+          new_price={25.00} 
+          old_price={null} 
+          rating={3} 
+          description="Keep your workspace tidy." 
+        />
+        <Item 
+          name="Highlighter Set" 
+          image={highlighterImage} 
+          new_price={50.00} 
+          old_price={null} 
+          rating={4} 
+          description="Highlighters in various colors." 
         />
       </div>
     </div>

@@ -1,4 +1,4 @@
-.popular {
+ .popular {
     padding: 40px;
     text-align: center;
     transition: color 0.3s, background-color 0.3s;
@@ -8,43 +8,173 @@
     font-size: 36px;
     font-weight: 700;
     color: #333;
-    margin-bottom: 10px; /* Reduced margin for tighter spacing */
+    margin-bottom: 10px;
 }
 
 .popular hr {
-    width: 70%; /* Span across most of the container width */
-    margin: 0 auto 40px; /* Ensure margin between the hr and content */
-    border: 0; /* Remove default border */
-    height: 4px; /* Set a custom height */
-    background: linear-gradient(90deg, rgba(136,18,151,1) 0%, rgba(255,85,85,1) 100%); /* Cool gradient */
-    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8); /* Add a glow effect */
-    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Smooth transition for glow effect */
+    width: 70%;
+    margin: 0 auto 40px;
+    border: 0;
+    height: 4px;
+    background: linear-gradient(90deg, rgba(136,18,151,1) 0%, rgba(255,85,85,1) 100%);
+    box-shadow: 0 0 15px rgba(136, 18, 151, 0.8);
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
 }
 
 .popular hr:hover {
-    box-shadow: 0 0 25px rgba(136, 18, 151, 1); /* Increase glow on hover */
-    background-color: rgba(136,18,151, 0.7); /* Darker on hover */
+    box-shadow: 0 0 25px rgba(136, 18, 151, 1);
+    background-color: rgba(136, 18, 151, 0.7);
 }
 
 .popular-item {
     display: flex;
-    margin-top: 80px; /* Space between the title and items */
+    margin-top: 80px;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px; /* Gap between individual items */
-    opacity: 0; /* Initially hidden for animation */
-    transform: translateY(30px); /* Slide effect from below */
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth animation */
+    gap: 30px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
 }
 
+.item-image{
+    width: 200px;
+    height: 150px;
+}
+/* General Container */
+.shop-category-container {
+    text-align: center;
+    padding: 20px;
+    /* background-color: #f9f9f9; Subtle background color */
+}
+
+/* Banner Styling */
+.shop-category-banner {
+    width: 800px;
+    max-height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+    border-radius: 10px; /* Smooth rounded edges */
+}
+
+/* Category Content */
+.shop-category-content {
+    margin: 20px auto;
+    max-width: 1200px; /* Center the content */
+    padding: 15px;
+}
+
+/* Product List Grid */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px; /* Spacing between items */
+    justify-items: center;
+}
+
+/* Individual Product Item */
+.product-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image Styling */
+.product-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+/* Product Details */
+.product-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.product-item p {
+    font-size: 1rem;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Button Styling */
+.product-item button {
+    background-color: #007bff;
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.product-item button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.product-item button:active {
+    background-color: #003d80;
+    transform: scale(0.95); /* Slightly shrink on click */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .product-item {
+        padding: 10px;
+    }
+
+    .product-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .product-item h3 {
+        font-size: 1rem;
+    }
+
+    .product-item p {
+        font-size: 0.8rem;
+    }
+
+    .product-item button {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Add responsiveness */
+@media (max-width: 768px) {
+    .product-image {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+
 .popular-item.visible {
-    opacity: 1; /* Show items when scrolled into view */
-    transform: translateY(0); /* Bring items to their normal position */
+    opacity: 1;
+    transform: translateY(0);
 }
 
 .frame {
-    width: 200px;
-    height: 200px;
+    width: 20px;
+    height: 20px;
     overflow: hidden;
     border: 2px solid #ccc;
     border-radius: 10px;
@@ -52,36 +182,55 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s, box-shadow 0.3s; /* Smooth scale and shadow effect on hover */
-    margin: 15px; /* Space between images */
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin: 15px;
 }
 
 .frame:hover {
-    transform: scale(1.1); /* Scale effect on hover */
-    box-shadow: 0 0 20px rgba(255, 0, 90, 0.8), /* Main glow */
-                0 0 30px rgba(255, 0, 90, 0.6), /* Secondary glow */
-                0 0 40px rgba(255, 0, 90, 0.4); /* Larger outer glow */
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 0, 90, 0.6), 
+                0 0 25px rgba(255, 0, 90, 0.4), 
+                0 0 30px rgba(255, 0, 90, 0.2);
 }
 
 .frame img {
-    width: 100%;
-    height: auto;
+    width: 30%;
+    height: 20px;
     object-fit: cover;
 }
 
 
-/* Dark Mode Styling */
 .dark-mode .popular h1 {
     color: white;
-    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6); /* Glow effect */
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 
+                 0 0 20px rgba(255, 0, 90, 0.6);
 }
 
 .dark-mode .popular hr {
-    border-color: #444; /* Darker color for the HR in dark mode */
+    background: linear-gradient(90deg, rgba(255,85,85,1) 0%, rgba(136,18,151,1) 100%);
+    box-shadow: 0 0 15px rgba(255, 85, 85, 0.8);
 }
 
 .dark-mode .popular {
-    background-color: #171717; /* Dark background */
-    color: white; /* White text for contrast */
-    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 0 0 20px rgba(255, 0, 90, 0.6); /* Neon effect */
+    background-color: #171717;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 0, 90, 0.8), 
+                 0 0 20px rgba(255, 0, 90, 0.6);
 }
+
+
+@media (max-width: 768px) {
+    .popular h1 {
+        font-size: 28px;
+    }
+
+    .frame {
+        width: 150px;
+        height: 150px;
+    }
+
+    .popular hr {
+        width: 90%;
+    }
+}
+ 

@@ -1,51 +1,84 @@
 .item-card {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 16px;
-    text-align: center;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-    max-width: 250px;
-    margin: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  max-width: 250px;
+  margin: 10px;
+}
+
+.item-card:hover {
+  transform: scale(1.05);
+}
+
+.item-image {
+  width: 100%;
+  height: auto; /* Ensures image maintains its aspect ratio */
+  max-height: 200px; /* Set a max height to prevent excessive image scaling */
+  object-fit: cover; /* Ensures the image covers the space without distortion */
+  border-radius: 8px;
+  margin-bottom: 10px; /* Add space between image and controls */
+}
+
+.item-controls {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.add-btn, .remove-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.remove-btn {
+  background-color: #ff4d4d;
+}
+
+.add-btn:hover, .remove-btn:hover {
+  background-color: #0056b3;
+}
+
+.remove-btn:hover {
+  background-color: #cc0000;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 1024px) {
+  .item-card {
+    max-width: 220px; /* Smaller card width for medium screens */
   }
-  
-  .item-card:hover {
-    transform: scale(1.05);
-  }
-  
+
   .item-image {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    max-height: 180px; /* Adjusted image size for medium screens */
   }
-  
-  .item-controls {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 10px;
+}
+
+@media (max-width: 768px) {
+  .item-card {
+    max-width: 200px; /* Even smaller card width for tablets */
   }
-  
-  .add-btn, .remove-btn {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+
+  .item-image {
+    max-height: 160px; /* Adjusted image size for tablets */
   }
-  
-  .remove-btn {
-    background-color: #ff4d4d;
+}
+
+@media (max-width: 480px) {
+  .item-card {
+    max-width: 180px; /* Smallest card size for mobile screens */
   }
-  
-  .add-btn:hover, .remove-btn:hover {
-    background-color: #0056b3;
+
+  .item-image {
+    max-height: 140px; /* Smaller image size for mobile */
   }
-  
-  .remove-btn:hover {
-    background-color: #cc0000;
-  }
-  
+}

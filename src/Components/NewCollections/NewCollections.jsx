@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import './NewCollections.css';
-import image1 from '../Assets/buisesswoman cropped.png';
-import image2 from '../Assets/buisnessman cropped.png';
-import image4 from '../Assets/schoolkids cropped.png';
-import image5 from '../Assets/trolly cropped.png';
+import notebookImage from '../Assets/notebook.png';
+import keyboardImage from '../Assets/keyboard.png';
+import backpackImage from '../Assets/backpack.png';
+import chairImage from '../Assets/chair.png';
 
 const NewCollections = () => {
   const [visible, setVisible] = useState(false);
@@ -29,16 +29,16 @@ const NewCollections = () => {
       <hr />
       <div className={`collections ${visible ? 'visible' : ''}`}>
         <div className="frame">
-          <img src={image1} alt="New Collection 1" />
+          <img src={notebookImage} alt="New Collection 1" />
         </div>
         <div className="frame">
-          <img src={image2} alt="New Collection 2" />
+          <img src={keyboardImage} alt="New Collection 2" />
         </div>
         <div className="frame">
-          <img src={image4} alt="New Collection 3" />
+          <img src={backpackImage} alt="New Collection 3" />
         </div>
         <div className="frame">
-          <img src={image5} alt="New Collection 4" />
+          <img src={chairImage} alt="New Collection 4" />
         </div>
       </div>
     </div>

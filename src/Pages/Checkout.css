@@ -1,3 +1,9 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .cart-container {
     max-width: 600px;
     margin: auto;
@@ -109,7 +115,16 @@ h2 {
     margin: 20px 0;
 }
 
-/* Responsive Design */
+.empty-cart-message a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.empty-cart-message a:hover {
+    text-decoration: underline;
+}
+
+
 @media (max-width: 768px) {
     .cart-container {
         padding: 15px;
